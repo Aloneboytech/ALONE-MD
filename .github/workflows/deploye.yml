@@ -34,10 +34,4 @@ jobs:
         run: npm list
 
       - name: Debug project structure
-        run: ls -la  # Affiche la structure du projet pour le débogage
-
-      - name: Check Node.js version
-        run: node -v  # Vérifie la version de Node.js
-
-      - name: Start application
-        run: npm start
+        run: ls -la  # Affiche la
