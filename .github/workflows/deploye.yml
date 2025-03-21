@@ -1,36 +1,36 @@
 name: Node.js CI
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+   on:
+     push:
+       branches:
+         - main
+     pull_request:
+       branches:
+         - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+   jobs:
+     build:
+       runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
+       strategy:
+         matrix:
+           node-version: [20.x]  # Version de Node.js à utiliser
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+       steps:
+         - name: Checkout repository
+           uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+         - name: Set up Node.js
+           uses: actions/setup-node@v4
+           with:
+             node-version: ${{ matrix.node-version }}
+             cache: 'npm'  # Utilise le cache npm pour accélérer l'installation des dépendances
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
+         - name: Install dependencies
+           run: npm install --legacy-peer-deps  # Installe les dépendances avec l'option legacy-peer-deps
 
-      - name: Verify dependencies
-        run: npm list
+         - name: Verify dependencies
+           run: npm list  # Vérifie que les dépendances sont correctement installées
 
-      - name: Start application
-        run: npm start
+         - name: Start application
+           run: npm start  # Démar
